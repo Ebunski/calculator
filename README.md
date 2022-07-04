@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# 12. Sidebar-Modal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple project from freecodecamp
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Project features react concepts like contextApi, useContext and custom hooks
+Features:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- HomePage with hamburger icon and modal button
+- Sidebar and modal in separate components
 
-### `npm test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `npm run build`
+- View the optimal layout for the component depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Hide/Show modal and sidebar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./screenshot.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Links
 
-### `npm run eject`
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React javascript
+- CSS custom properties and dynamically rendered css classes
+- Flexbox and grid
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## My process
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- I started by studying the design image and trying to walkthrough the process in my head
+- Next i went through the mobile and desktop styles on the css files
+- Created the layout of the components
+- Setup the context with all the states and toggle functions
+- Started with the navbar, to hero, to sidebar and the submenu(the most challenging)
+- Gave the page life with the magic of javascript.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### What I learnt
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Css:
+  - Hero and navbar: 
+  Hero section negative margin and pseudo class background (z-index: -1)
+  Navbar with transparent bg 
+  sidebar: scale, visibility and z-index transition on show.
 
-### Code Splitting
+2. React:
+   First and foremost, i learnt the importance of default values. Had a bug that took me hours to solve.
+   Default falues are important when dealing with map functions.
+   That being said, i learnt about the onMouseOver event listener.
+   Also learnt about event.target.textContent and .contains objects and got to practice .getBoundingClientRect()
+   I was also able to put my debugging skills to test.
+   Got to pratice using context.
+   Practiced the useRef hook.
+Overall it was a very wonderful project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
+- Website - [coming soon...]
+- LinkedIn - [Ebunoluwa Oyebola]
+- Twitter - [@Ebun_ski](https://www.twitter.com/Ebun_ski)
+- Email - [ebunoyebola03@gmail.com]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgments
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you freecodecamp for this series.

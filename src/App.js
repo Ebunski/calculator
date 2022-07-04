@@ -5,7 +5,7 @@ import Digit from "./components/Digit";
 import Operation from "./components/Operation";
 import { useReducer } from "react";
 
-//actions we can take in the app
+//types of actions we can take in the app
 //remember to export and import
 export const ACTIONS = {
   ADD_DIGIT: "digit",
@@ -16,13 +16,15 @@ export const ACTIONS = {
 };
 
 const initialState = {
-  currOperation: "",
-  prevOperation: "",
+  currOperation: null,
+  prevOperation: null,
   operation: "",
   overwrite: false,
 };
 
 //state represents the  accumulator or prev value of state
+//action{type,payload}
+//global variable ACTIONS supplies the type in the switch statements.
 function reducer(prev, action) {
   switch (action.type) {
     case ACTIONS.ADD_DIGIT:
@@ -36,24 +38,31 @@ function reducer(prev, action) {
         return prev;
       if (action.payload.digit === "." && prev.currOperation.includes("."))
         return prev;
+      if (prev.currOperation === null)
+        return {
+          ...prev,
+          currOperation: action.payload.digit,
+        };
       return {
         //the action on the initial state
         ...prev, //prevstate but adds the new digit to the current operation displayed
-        currOperation: prev.currOperation.concat(action.payload.digit),
+        currOperation: `${prev.currOperation}${action.payload.digit}`,
+
         //key-to-change: value
       };
 
     case ACTIONS.CHOOSE_OPERATION:
-      if (prev.prevOperation === "" && prev.currOperation === "") return prev;
+      if (prev.prevOperation === null && prev.currOperation === null)
+        return prev;
 
-      if (prev.prevOperation === "")
+      if (prev.prevOperation === null)
         return {
           ...prev,
           prevOperation: prev.currOperation,
           operation: action.payload.operation,
-          currOperation: "",
+          currOperation: null,
         };
-      if (prev.currOperation === "")
+      if (prev.currOperation === null)
         return {
           ...prev,
           operation: action.payload.operation,
@@ -62,7 +71,7 @@ function reducer(prev, action) {
         ...prev,
         prevOperation: evaluate(prev),
         operation: action.payload.operation,
-        currOperation: "",
+        currOperation: null,
       };
 
     case ACTIONS.CLEAR:
@@ -70,30 +79,30 @@ function reducer(prev, action) {
 
     case ACTIONS.EVALUATE:
       if (
-        prev.currOperation === "" ||
-        prev.prevOperation === "" ||
+        prev.currOperation === null ||
+        prev.prevOperation === null ||
         prev.operation === ""
       )
         return prev;
       return {
         ...prev,
         overwrite: true,
-        prevOperation: "",
+        prevOperation: null,
         currOperation: evaluate(prev),
-        operation: "",
+        operation: null,
       };
 
     case ACTIONS.DELETE_DIGIT:
       if (prev.overwrite)
         return {
           ...prev,
-          currOperation: "",
+          currOperation: null,
         };
-      if (prev.currOperation === "") return prev;
+      if (prev.currOperation === null) return prev;
       if (prev.currOperation.length === 1)
         return {
           ...prev,
-          currOperation: "",
+          currOperation: null,
         };
       return {
         ...prev,
@@ -108,7 +117,7 @@ function reducer(prev, action) {
 function evaluate({ currOperation, prevOperation, operation }) {
   const prevOp = Number(prevOperation); //  console.log(typeof parseFloat(currOperation));
   const currOp = parseFloat(currOperation);
-  if (isNaN(prevOp) || isNaN(currOp)) return ""; //check input
+  if (isNaN(prevOp) || isNaN(currOp)) return null; //check input
   let computation = ""; //let because we are re-assigning values
   switch (operation) {
     case "+":
@@ -138,6 +147,13 @@ function formatOperand(operand) {
   if (decimal == null) return INT_FORMATTER.format(integer);
   return `${INT_FORMATTER.format(integer)}.${decimal}`;
 }
+
+/*
+=============== 
+APP
+===============
+*/
+
 export default function App() {
   //state parameter is given variables for the different ops
   const [state, dispatch] = useReducer(reducer, initialState);
