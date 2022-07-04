@@ -68,4 +68,4 @@ Overall it was a very wonderful project.
 
 ## Acknowledgments
 
-Thank you freecodecamp for this series.
+Thanks to Webdev simplified.
