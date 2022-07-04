@@ -1,7 +1,8 @@
 import React from "react";
-import { ACTIONS } from "../App";
+import { useGlobalContext } from "../context";
 
-export default function Digit({ dispatch, digit }) {
+export default function Digit({ digit }) {
+  const { dispatch, ACTIONS } = useGlobalContext();
   return (
     <>
       <button

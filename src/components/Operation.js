@@ -1,7 +1,8 @@
 import React from "react";
-import { ACTIONS } from "../App";
+import { useGlobalContext } from "../context";
 
-export default function Operation({ dispatch, operation }) {
+export default function Operation({ operation }) {
+  const { dispatch, ACTIONS } = useGlobalContext();
   return (
     <>
       <button

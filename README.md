@@ -1,6 +1,6 @@
-# 12. Sidebar-Modal
+# 1. Calculator app
 
-This is a simple project from freecodecamp
+This is a simple yet technical project.
 
 ## Table of contents
 
@@ -14,19 +14,15 @@ This is a simple project from freecodecamp
 
 ## Overview
 
-Project features react concepts like contextApi, useContext and custom hooks
-Features:
-
-- HomePage with hamburger icon and modal button
-- Sidebar and modal in separate components
+Project features the react useReducer Hook.
 
 ### The challenge
 
 Users should be able to:
 
 - View the optimal layout for the component depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Hide/Show modal and sidebar
+- See focus states for all interactive elements on the page
+- Perform basic operations on the calculator
 
 ### Screenshot
 
@@ -45,30 +41,22 @@ Users should be able to:
 
 ## My process
 
-- I started by studying the design image and trying to walkthrough the process in my head
-- Next i went through the mobile and desktop styles on the css files
-- Created the layout of the components
-- Setup the context with all the states and toggle functions
-- Started with the navbar, to hero, to sidebar and the submenu(the most challenging)
-- Gave the page life with the magic of javascript.
-
+- Created the JSX elements and applied the necessary styles.
+- set up the initial state and the global action variable
+- Called useReducer
+- Set up the reducer function with switch statements
+- Organised the project into components and used to useContext hook
 
 ### What I learnt
 
 1. Css:
-  - Hero and navbar: 
-  Hero section negative margin and pseudo class background (z-index: -1)
-  Navbar with transparent bg 
-  sidebar: scale, visibility and z-index transition on show.
+   Glassmorphism and grid
 
 2. React:
-   First and foremost, i learnt the importance of default values. Had a bug that took me hours to solve.
-   Default falues are important when dealing with map functions.
-   That being said, i learnt about the onMouseOver event listener.
-   Also learnt about event.target.textContent and .contains objects and got to practice .getBoundingClientRect()
-   I was also able to put my debugging skills to test.
-   Got to pratice using context.
-   Practiced the useRef hook.
+   Learnt the useReducer hook and got to pratice using context.
+   Got to practice creating logic for each possible instance.
+   Learnt the Intl object and also got to understand how to work with different data types.
+
 Overall it was a very wonderful project.
 
 ## Author

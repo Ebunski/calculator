@@ -1,11 +1,12 @@
-import React from "react"
-import ReactDOM  from "react-dom"
-import App from "./App"
-import "./style.css"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./style.css";
+import { AppProvider } from "./context";
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('root')
- );
-
-
+  <AppProvider>
+    <App />
+  </AppProvider>,
+  document.getElementById("root")
+);
